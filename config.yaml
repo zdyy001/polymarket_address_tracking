@@ -4,7 +4,7 @@
 address: "0x6031b6eed1c97e853c6e0f03ad3ce3529351f96d"
 
 # 事件slug (例如 btc-updown-15m-1766920500)
-slug: "btc-updown-15m-1767361500"
+slug: "btc-updown-15m-1767438900"
 
 # Binance永续合约交易对 (用于获取对应时间的市场价格)
 price_symbol: "BTCUSDC"

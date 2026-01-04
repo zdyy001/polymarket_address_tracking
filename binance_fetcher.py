@@ -198,6 +198,14 @@ def main():
             if cum_up_avg_cost and cum_down_avg_cost:
                 cash_out_price = round(cum_up_avg_cost + cum_down_avg_cost, 4)
 
+        # 计算hidden_lost和hidden_profit
+        hidden_lost = ""
+        hidden_profit = ""
+        if target_shares != "" and target_price != "":
+            hidden_lost = round(-abs(target_shares) * (1 - target_price), 4)
+        if cash_out_shares != "" and cash_out_price != "":
+            hidden_profit = round(cash_out_shares * (1 - cash_out_price), 4)
+
         row = {
             "timestamp": ts,
             "time_utc8": timestamp_to_utc8(ts),
@@ -215,6 +223,8 @@ def main():
             "target_price": target_price,
             "cash_out_shares": cash_out_shares,
             "cash_out_price": cash_out_price,
+            "hidden_lost": hidden_lost,
+            "hidden_profit": hidden_profit,
             "trade_count": len(ts_trades) if ts_trades else "",
         }
         rows.append(row)
